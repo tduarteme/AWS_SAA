@@ -1,0 +1,20 @@
+# Policies Structure:
+    Version - Policy Language Version
+    Id - Identifier for the policy
+    Statement - One or more individual Statement
+
+# Statement:
+    Sid - Identifier for the statement
+    Effect - Allow or Deny
+    Principal - Account/user/role
+    Action - Allow or Deny
+    Resource
+    Condition
+
+# IAM Security Tools:
+    IAM Credentials Report (account-level)
+        Report that list all your account's users and status their credentials
+
+    IAM Access Advisor (user-level)
+        Show the service permissions granted to a user and when those services were last accessed
+        You can use this information to revise policies.
