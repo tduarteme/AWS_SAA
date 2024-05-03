@@ -1,0 +1,6 @@
+# Segurity Group
+    Statefull
+
+    Default.:
+        Inbound Block
+        Outbound Allow
