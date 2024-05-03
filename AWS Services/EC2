@@ -4,3 +4,36 @@
     Default.:
         Inbound Block
         Outbound Allow
+
+# EC2 On Demand
+    Pay for what you use:
+        Recommended for short-term and un-interrupted workloads, where we can´t predict how the application will behave.
+
+# Reserved Instances
+    72% discount compared to On-demand
+    Period 1(+discount) or 3 (+++discount) years
+    Recommended for steady-state usage applications (think database)
+    Can buy and sell in Marketplace
+
+# Saving Plans
+    1 or 3 years
+
+# Spot Instances
+    90% discount compared to On-demand
+    Most cost-efficient in AWS
+    Useful for workloads that are resilient to failure
+        Batch Jobs
+        Data analysis
+        Image Processing
+        Workloads with flexible start and end time
+
+# Dedicated Host
+    Physical server with EC2 instance capacity fully dedicated to your use
+    Allow Compliance requirements and use your existing server bound software licenses
+    Great fot companies that have strong regulatory or compliance.
+
+# Spot Fleets
+    Fleets = Spot + On-demand instances
+    Try meet the target capacity with price constraints
+    LowestPrice, diversified, capacityOptimized, price Capacity Optimized
+    Fleets allow to automatically request Spot Instances
