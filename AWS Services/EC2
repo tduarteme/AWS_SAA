@@ -5,6 +5,12 @@
         Inbound Block
         Outbound Allow
 
+# EC2 User Data
+    Bash script that install required, bootstrap.
+
+# Compute Optimized
+    Great for compute-intensive, workloads required HPC (High Performance Compute)
+
 # EC2 On Demand
     Pay for what you use:
         Recommended for short-term and un-interrupted workloads, where we can´t predict how the application will behave.
@@ -26,6 +32,7 @@
         Data analysis
         Image Processing
         Workloads with flexible start and end time
+        Less reliable because you can lose EC2
 
 # Dedicated Host
     Physical server with EC2 instance capacity fully dedicated to your use
