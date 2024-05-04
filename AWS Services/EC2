@@ -44,3 +44,28 @@
     Try meet the target capacity with price constraints
     LowestPrice, diversified, capacityOptimized, price Capacity Optimized
     Fleets allow to automatically request Spot Instances
+
+# Elastic IP
+    Can only have 5 Elastic IP account.
+    Attach fix IP on EC2
+    * Load Balancer don't use IP.
+
+# Placement Group
+    Control over the EC2 Instance
+        Cluster - Instance low-latency group in single AZ, 10 Gbps network. (If the Az fail, all instances fails, don't HA)
+        Spread - Instance across underçying hardware (max 7 instances per group/AZ) critical applications - use HA
+        Partition - Instances across many different partitions - applications as Hadoop, Cassandra and Kafka - 
+7 partitions per AZ
+
+# Elatic Network Interface - ENI
+    Logical component in a VPC
+    Can create an ENI independently and attach them on the fly (move them), EC2 intances for failover
+    Specific availability zone.
+
+# EC2 Hibernate
+    Instance Families - C3,4,5,I3,M3,4,R3,4.T2,3
+    RAM Size - Less than 150GB
+    Don't supported for bare metal instances
+    Root EBS - must be encrypted, not instance store and large
+    Available for On-Demand, Reserved ans Spot Instance
+    Instance can't be hibernated more than 60 days
