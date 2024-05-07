@@ -20,4 +20,74 @@
         Force full initialization, no latency and expensive.
 
 # AMI - Amazon Machine Image
+    Start EC2 instance and customize it 
+    Buid an AMI - this will create EBS snapshot
+    AMI GOLDEN - Include all dependencias
+
+# Instance Store
+    High Performance hardware disk
+    Better I/O Performance
+    If terminate or stop, the disk is lose
+    Goof for buffer / cache / scratch data / tempory content
     
+# EBS Volumes Types
+    gp2/3 SSD - General purpose that balance price and performance of workloads (boot volumes)
+        1Gib - 16 TiB
+        gp2:
+            3 IOPS per GB, means at 5,334 GB
+            MAX IOPS 16,000
+            can burst IOPS to 3000
+
+        gp3:
+            3000 IOPS throughtput od 125 MiB/s
+            Can increase IOPS 16000 and throughtput up to 1000 MiB/s
+    
+    io1/2 Block Express SSD - High Performance for mission-critical, low-latency or high throughput
+        io1: (4GiB - 16 TiB)
+            MAX Provisioned IOPS (PIOPS) - 64000 for Nitro EC2 and 32000 for other
+            Can increase PIOPS independently from storage size
+
+        io2: (4GiB - 16 TiB)
+            sub millisecond latency
+            MAX PIOPS 256000
+            Support EBS Multi-attach
+
+    (Cannot be a boot volume)
+    st1 HDD - Low cost designed for frequently accessed, throughput intensive workload
+        Big data, Data Warehouses, Log Processing
+        Max throughtput 500 Mib/s - max IOPS 500
+
+    sc1 HDD Low cost desined for less frequently accessed workload
+        data is infrequently accessed
+        scenarios where lowest cost is important
+        MAX throughtput 250 MiB/s - MAX IOPS 250
+
+# EBS Multi-Attach io1/2
+    Attach same EBS volume to multiple EC2 instance in the same AZ
+    Intance has full read & write permissions to the high-performance volume
+    UP 16 intances at time
+    Must use a file system that's cluster-aware (not XFS, EXT4)
+
+    Case use:
+        DHigher application availability, applications must manage concurrent write operations
+
+# EBS Encryption
+    leverages keys from KMS (AES-256)
+    copying an unencrypted snapshot allows encryption
+
+# Amazon EFS
+    Network File System - can be mounted on many EC2
+    Multi-AZ
+    Highly Available, scalable, expensive
+
+    Standard: Regional
+        Multi-AZ, great for PROD
+        
+    One Zone:
+        Great for dev, backup, compatible with IA (EFS One Zone-IA)
+
+    Use case:
+        Content management, web serving, data sharing, wordpress
+        SG to control acccess to EFS
+        Linux based
+        Encryption at rest using KMS
