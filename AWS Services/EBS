@@ -1,0 +1,23 @@
+# Elastic Block Store
+    Persist data
+    Specific AZ
+    Free Tier 30GB General Purpose SSD
+    To move a volume cross, first need to snapshot
+    *Multi-attach - 16 instances
+
+# EBS Delete on Termination attribute
+    Enable volume root(Disk Ephemeral) and Disable volume EBS.
+
+# Snapshot
+    Archive Tier - 75% cheaper
+        24 to 72 hours for restore
+
+    Recycle Bin
+        Retain deletes snapshots, can recover them after accidetaton deletion
+        Retention 1 day to 1 year
+
+    Fast Snapshot Restore (FSR)
+        Force full initialization, no latency and expensive.
+
+# AMI - Amazon Machine Image
+    
