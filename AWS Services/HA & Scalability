@@ -1,0 +1,26 @@
+# Vertical Scalability
+    Incresing the size instance
+    RDS, ElastiCache are services that can scale vertically
+
+# Horizontal Scalability
+    Incresing the number the instances
+    Very common for web applications / modern applications
+    Easy to horizontally scale thanks the cloud (ALB,ALN)
+
+# HA
+    Run instances for the same application across multi Az
+        ASG and ALB - multi AZ
+
+# Elastic Load Balancing
+    LB are servers that forward traffic to multiple servers
+        Health Checks
+            Crucial for LB
+            They enable the LB to know if instances it forwards traffic to available to reply to request.
+            Check is done on a port and a route (/health is common)
+            If instance no response is not (200 ok), then the instance is unhealthy
+
+# Types LB
+    Classic LB - HTTP. HTTPS, TCP, SSL
+    ALB - HTTP, HTTPS, Websocket
+    NLB - TCP, TLS, TCP, UDP
+    GWLB - Operate ar layer 3 (network)
