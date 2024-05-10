@@ -20,7 +20,60 @@
             If instance no response is not (200 ok), then the instance is unhealthy
 
 # Types LB
-    Classic LB - HTTP. HTTPS, TCP, SSL
-    ALB - HTTP, HTTPS, Websocket
+    *(Deprecated) Classic LB - HTTP. HTTPS, TCP, SSL
+
+    ALB - HTTP, HTTPS, Websocket Layer 7
+        Using ALB  to distribute traffic to your EC2 instances, the IP address you'll receive requests from will be the ALB's private IP addresses. 
+            To get the client's IP address, ALB adds an additional header called "X-Forwarded-For" contains the client's IP address.
+
+        ALBs can route traffic to different Target Groups based on URL Path, Hostname, HTTP Headers, and Query Strings.
+
     NLB - TCP, TLS, TCP, UDP
     GWLB - Operate ar layer 3 (network)
+
+
+# Network Load Balancer
+    Layer 4 - Transport
+        forward TCP & UDP
+        One static IP per AZ - Elastic IP
+        Health Checks support the HTTP, HTTPS and TCP.
+    Network Load Balancer has one static IP address per AZ and you can attach an Elastic IP address to it. 
+    Application Load Balancers and Classic Load Balancers have a static DNS name.
+
+# Gateway Load Balancer
+    Layer 3 - Network
+    Deploy, scale and manage.
+    Firewall, Intrusion Detection and Prevention Systems
+    Geneve protocol port 6081
+
+# Sticky Sessions
+    The cookie used for stickiness has an expiration date control
+    User doesn't lose his session data
+
+    Application-based Cookies
+        Don't use AWSALB, AWSALBAPP, AWSALBTG (reserved for use by the ELB)
+
+# SSL/TLS
+    SSL certificate allow traffic between clients, LB to be encrypted in transit (in-flight encrption)
+        SSL - Secure Sockets Layer - encrypt connections - ahve an expiration data (you set)
+        TLS - Tranport Layer Security
+
+    LB - SSL Certicates
+        LB use an X.509 certificates (SSL/TLS server certificate)
+        Can manage certificates using ACL (AWS Certificate Manager)
+
+    SSL Server Name Indication "SNI"
+        solves the problem of loading multiple SSL certificates (serve multiples website)
+        "newer" protocol, requires the client to indicate the hostname of the target server
+        Only works with ALB, NLB and Cloud Front
+        Server Name Indication (SNI) allows you to expose multiple HTTPS applications each with its own SSL certificate on the same listener. Read more here: https://aws.amazon.com/blogs/aws/new-application-load-balancer-sni/
+
+# Cross-Zone LB
+    When Cross-Zone Load Balancing is enabled, ELB distributes traffic evenly across all registered EC2 instances in all AZs.
+
+# Auto Scaling Group - ASG - It's FREE
+    Scale out, increase Instances
+    Scale in, remove Instances
+    Ensure minumum and maxium number pf EC2 running
+    Re-create an EC2 in case one is terminated (unhealth)
+
