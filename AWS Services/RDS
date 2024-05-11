@@ -1,0 +1,88 @@
+# RDS - Relational Database Services
+    Postgres
+    MYSQL
+    MariaDB
+    Oracle
+    Microsoft SQL Server
+    IBM DB2
+    Aurora (Proprietary AWS)
+
+# RDS is manage service
+    Automated provisioning, OS patching
+    Continuos backups and restore to specific timestamp
+    Monitoring Dashboard
+    Read Replicas for improved read performance
+    Multi AZ (Disaster Recovery)
+    Maintenance windows for upgrades
+    Scaling capability (vertical and horizontal)
+    Storage backup by EBS (gp2 or io l)
+
+# RDS Storage Auto Scaling
+    Increase storage on your RDS DB dynamically
+    Have to set Maxium Storage Threshold
+    Support all RDS database engine
+
+# RDS Read Replicas for read scalability
+    Up to 15 Read Replicas
+    ASYNC replication
+    AZ, Cross AZ, Cross Region
+    Replicas can be promoted, to their own DB
+    Applications must update the connection string to leverage read replicas
+
+    Use cases:
+        Only Read
+        Used for SELECT (=read) only
+
+# Read Replicas - Network Cost
+    Read Replicas same region, it's free.
+    Cross Region, there cost.
+
+# Multi AZ (Disaster Recovery)
+    SYNC replication
+    One DNS name - automatic app failover to standby
+    Increase availability
+    Failover in case of loss AZ, loss of network, instance or storage failure
+
+    "Read Replicas can be setup as Multi AZ for DR
+
+# RDS Custom
+    Managed Oracle and Microsoft SQL Server Database with OS and database customization
+        install patches
+        Configure settings
+        Access EC2 instances using SSH or SSM Session Manager
+
+        RDS: entire database and the OS manage by AWS
+        Custom: full admin access to the underlying OS and the database
+
+# Aurora
+    Postgres and MYSQL are both supported as Aurora DB
+    AWS cloud optimized and claims 5x performance improvement over MYSQL on RDS, over 3x the performance of Postgres on RDS
+    Storage increments of 10GB up to 128 TB
+    15 replicas, process is faster than MYSQL (10 ms replica lag)
+    Failover istantaneous, HA native
+    Cost more than 20% + - but is more efficient
+
+# Aurora HA and Read Scaling
+    6 copies of your data cross 3 AZ
+    4 copies out of 6 needed for writes
+    3 copies out of 6 needed for reads
+    One master and multiple read replicas
+    Failover for master in less than 30 seconds
+    Support for Cross Region Replication
+
+# Aurora DB Cluster
+    Shared Storage Volume - 10G to 128TB
+
+# Features Aurora
+    Automatic failover
+    Backup and Recovery
+    Isolation and security
+    Industry Compliance
+    Push-button scaling
+    Automated Patching with Zero Downtime
+    Advanced Monitoring
+    Routine Maintenance
+    Backtrack - restore data at any point of time without using backups
+
+
+
