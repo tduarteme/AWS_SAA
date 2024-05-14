@@ -39,6 +39,7 @@
         Health Checks support the HTTP, HTTPS and TCP.
     Network Load Balancer has one static IP address per AZ and you can attach an Elastic IP address to it. 
     Application Load Balancers and Classic Load Balancers have a static DNS name.
+    NLB supports HTTP health checks as well as TCP and HTTPS
 
 # Gateway Load Balancer
     Layer 3 - Network
