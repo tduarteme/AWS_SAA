@@ -1,0 +1,141 @@
+# DNS - Domain Name System
+    DNS is the backbone of the internet
+    Hirarchical naming structure
+        .com
+        example.com
+        www.example.com
+        api.example.com
+        
+# DNS Terminologies
+    Domain Registrar: Route 53, GoDaddy ...
+    DNS Records: A, AAAA, CNAME, NS
+    Zone File: Contains DNS Records
+    Name Server: Resolves DNS queries (Authorirative or No-Authoritative)
+    Top Level Domain (TLD): .com, .us, .gov, .org ...
+    Second Level Domain (SLD): amazon.com, google.com ...
+    FQDN: Fully Qualified Domain Name
+
+                                        URL
+                        http : // api  . www  . example . com .
+                        protocol  FQDN Sub-   SLD       TLD    root
+                                       domain 
+
+# Route 53
+    Pay 0,50 per month
+    HA, scalable, fully managed and authoritative DNS
+    Authoritative = the customer can update the DNS records
+    Also is a Domain Registrar
+    Ability to check the health of your resources
+    The only AWS service which provides 100% availability SLA
+    Is a reference to the traditional DNS port
+
+# Record Types
+    A - maps a hostname to IPV4
+    AAAA - maps a hostname to IPV6
+    CNAME - maps a hostname to another hostname
+        Domain name which must have an A or AAAA record
+        Can't create a CNAME record the top node of a DNS namespace (Zone Apex)
+    NS - Name Server for the Hosted Zone
+        Control how traffic is routed for a domain
+
+# Hosted Zone
+    Container for records that define how to route traffic to a domain and subdomain
+        Public Hosted Zone
+            how to route traffic on the internet (public domain name)
+
+        Private Hosted Zone
+            How to route traffic within one or more VPCs (private domain name - Company "INTRANET")
+
+# Record TTL - Time to Live
+    High TTL - e.g., 24hr
+        Less traffic on Route 53
+        Possibly outdated record
+
+    Low TTL - e.g., 60sec.
+        More traffic on Route 53 ($$)
+        Record are outdated for less time
+        Easy to change records
+
+    Except for Alias records, TTL is mandatory for each DNS record
+
+# CNAME Vs Alias
+    AWS Resources (LB, CloudFront) exponse an AWS hostname
+    CNAME:
+        Points a hostname to any other hostname
+
+    ALIAS:
+        Points a hotname to an AWS Resource
+        Free of change
+        Native health check
+        Services AWS:
+            ELB
+            CloudFront
+            API Gateway
+            Elastic Beanstalk
+            S3 Websites
+            VPN Interfaces Endpoints
+            Global Accelerator
+            Route 53 same zone
+            *Can't set an ALIAS recore for an EC2 DNS name
+
+# Routing Policies - Simple
+    Route traffic to a single resource
+    Can specify multiple values in the same record
+    When ALIAS enable, specify only one AWS resource
+    Can't be assoaciated with health checks
+
+# Weighted
+    Control the % of the request that go to each specific resources
+    DNS record must have the same name and type
+    Can be assoaciated with health checks
+    Use cases: LB between regions, test new app version ...
+    Assing a weight of 0 to a record to stop sending traffic
+    If all records have weight of 0, then all records will be returned equally
+
+# Latency
+    Redirect to the resource that has the last latency close to us
+    Super helpful when latency for users is a priority
+    Latency is based on traffic between users and AWS Regions
+    Can be associated with health checks (has a failover capability)
+    Germany users may be directed to the US.
+
+# Health Checks
+    Are only for public resources
+    Automated DNS Failover
+    Are integrated with Cloud Watch Metrics
+    15 global health checks
+    Health/unhealth - 3 (default)
+    Interval - 30 sec (can set to 10sec - higher cost)
+    Support protocol: HTTP, HTTPS and TCP
+    Responds with 2xx and 3xx status codes
+
+# Routing Policies
+    Failover
+        Rout 53 + EC2 primary + Ec2 secondary (DR) if fail, the traffic is directed for other instance healh
+    
+    Geolocation
+        Based on user location
+        Specify location by Continent, Country or by US State
+        Use cases: website localization, restrict cotent distribution, LB
+        Can be associated with Heal checks
+
+    Geoproximity
+        Ability to shift more traffic to resources based on the defined bias
+            To expand (1 to 99) - more traffic to the resource
+            To shrink (1 to 99) - less traffic to the resource
+        Must use Route 53 traffic flow (advanced)
+
+    IP based
+        based on client's IP address
+        Use cases: Optimize performance, reduce network cost
+
+    Multi-Value
+        Routing traffic to multiple resources
+        Up to 8 healthy records are returned for each Multi-value query
+        Multi-Value isn't a substitute for having an ELB
+
+# Party Registrar with Route 53
+    1º Create a Public Zone in Route 53
+    2º Update NS Records on 3 party website to use Route 53 Name Servers
+    Domain Registrar != DNS Service
+    
