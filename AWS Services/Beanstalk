@@ -1,0 +1,4 @@
+Developer centric view of deploying an application on AWS
+Use all the components, EC2, RDS, ASG, ELB
+Automatically capacity provisioning, LB, scaling, health monitoring
+Create multiple environments (dev,prod, homo)
