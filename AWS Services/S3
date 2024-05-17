@@ -1,0 +1,110 @@
+# S3 - Buckets
+    Naming convention
+        No uppercase, no underscore
+        3-63 characters long
+        Not an IP
+        Must start with lowercase letter or number
+        No start with the prefix xn--
+        No start end with the suffix -s3alias
+
+    The key is composed of "prefix" + "object name"
+    Max. Object Size is 5TB
+    If uploading more than 5GB, must use "multi-part upload"
+    Version (if versioing is enable)
+
+# S3 Security
+    User - based
+        IAM Policies - which API calls should be allowed for specific user from IAM
+    
+    Resource - based
+        Bucket Policies - rules from the S3 console allows cross account
+            JSON policies
+            Resources - buckets and objects
+            Effect - ALLOW / DENY
+            Actions - Set of API to ALLOW or DENY
+            Principal - the account or user to apply the policy
+            Use the bucket policy.:
+                to grant public access to the bucket
+                Force objects to be encrypted at upload
+                Grand access to another account (Cross Account)
+
+        Object Access Control List (ACL) - finer grain (can be disable)
+        Bucket Access Control List (ACL) - less common (can be disable)
+
+    Note: IAM principal can access S3, if the user IAM permissions ALLOW or the resource policy ALLOW
+        and there's no explicit DENY
+
+    Encryption - using encryption keys
+
+    "Grant access the services AWS on S3 - Use IAM roles"
+
+# S3 Replication
+    Must be enable versioning in source and destination buckets
+    Asynchronous replication between buckets
+    Must give proper IAM permissions to S3
+    Buckets can be in different accounts
+
+    Cross Region Replication (CRR)
+        Compliance, lowe latency access, replication across accounts
+
+    Same Region Replication (SRR)
+        log aggregation, live replication between production and test account
+
+    After enble replication, only new objects are replicated, to replicate existing objects use S3 "batch replication" (existing objects and failed replication)
+
+# S3 Classes
+    Can move between classes manually or using S3 Lifecycle
+    Durability 11 9's across multiple AZ
+
+    Standard - General Purpose
+        99.99% availability
+        Used for frequently accessed data
+        Low latency and high throughput
+        Use cases - Big Data analytics, mobile & gaming applications, content distribution
+
+    Infrequent Access
+        For data that is less frequently accessed, but requires rapid access when needed
+        Low cost that Standard
+
+    S3 Standard-Infrequent Access (S3 Standard-IA)
+        99.9% Availability
+        Use cases - DR, backups
+
+    S3 One Zone-Infrequent Access (S3 One Zone-IA)
+        High durability (11 9's) in sigle AZ, (negative - data lost when AZ is destroyed)
+        99.5% Availability
+        Use cases - Storing secondary backup copies of on-promise data or data can reacreate
+
+# S3 Glacier Storage Classes
+    Low-cost object storage meant for archiving / backup
+    Pricee for storage + object retrieval cost
+
+    Glacier Instant Retrieval
+        Millisecond retrieval, great for data accessed once a quarter (15')
+        Minium storage duration of 90 days
+
+    Glacier Flexible Retrieval (formerly S3 Glacier)
+        Expedited (1 to 5'), Standard (3 to 5 hours), bulk (5 to 12 hours) - free
+        Minium storage duration of 90 days
+
+    Glacier Deep Archive - long term storage
+        Standard (12 hours), bulk (48 hours)
+        Minium storage duration of 180 days
+
+    S3 Intelligent Tiering
+        Small monthly monitoring and auto-tiering fee
+        Move object automatically between access tiers based on usage
+        There'nt retrieval
+
+        Frequent Access (automatic): defauilt tier
+        Infrequent Access: not accessed for 30 days
+        Archive Instant Access: " 90 days
+        Archive Access (optinal): configurable from 90 to 700 + days
+        Deep Archive Access (optinal): config. from 180 to 700 + days
+
+    
+
+
+    
+
+    
