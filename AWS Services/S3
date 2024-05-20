@@ -102,7 +102,32 @@
         Archive Access (optinal): configurable from 90 to 700 + days
         Deep Archive Access (optinal): config. from 180 to 700 + days
 
-    
+# Move Classes
+    Standard
+        Standard IA
+            Intelligent Tiering
+                One Zone IA
+                    Glacier Instant Retrival
+                        " Flexible "
+                            " Deep Archive
+
+
+# Request Pays
+    Mode Standard,the bucket owner pay all request
+    Request Pays, the request that pay, help when want to share large datasets with other accounts.
+
+# S3 Performance
+    Multi-Part Upload
+        recommend for files > 100MB
+        must use for files > 5GB
+
+    S3 Transfer Accleration
+        Transfer speed by transferring file to an AWS edge location
+        Compatible with Multi-part Upload
+
+# Storage Lens
+    Understand, analyze, and optimize storage across entire AWS Organization
+    Discover anomalies, identify cost efficiencies and apply data protetion best practices across AWS Organization
 
 
     
