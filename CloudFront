@@ -1,0 +1,74 @@
+# Cloud Front
+    Content Delivery Network CDN
+        Improves read performance, content is cached at the edge
+        216 Points of Presence globally
+        DDos Protection (because www), integration with Shield and AWS WAF
+        Great for static content that must be available everywhere
+
+# S3 Cross Region Replication
+    Must be setup for each region 
+    Files area updated in near real-time
+    Read Only
+    Great for dynamin content that needs to be available at low-latency in few regions
+
+# Cloud Front - Origins
+    S3 bucket
+        Distributing files and caching
+        Security with Cloud Front Origin Access Control (OAC)
+        Can be used as an ingress to upload files to S3
+
+    Custom Origin HTTP
+        ALB
+        EC2
+        S3 website
+        Any HTTP backend
+
+# CloudFront Geo Restriction
+    Can restrict who can access your distribution
+        Allowlist: Allow your users to access content, countries on a list approved
+
+        Blocklist: Prevent users from accessing content, countries on a list of banned
+
+# Cache Invalidations
+    In case update backend origin, Cloudfront doesn't know about
+    Force an entire or parcial cache refrest
+    Invalidate all files (*) or special path (/images/*)
+
+# Global Accelerator
+    Unicast IP - one server hold IP
+    Anycast - all servers hold the same IP
+
+    Global accelerator is Anycast, 2 IP, send traffic directly to Edge Locations
+    The Edge Location send the traffic to application
+    Works with EC2, Elastic IP, ALB, NBL, public or private
+
+    Performance
+        Intelligent routing to lowest latency and fast regional failover
+        No issue with client cache (because the IP doesn't change)
+        Internal AWS network
+
+    Health Check
+        Performs health check of applications
+        Help make application global (failover less than 1 minute for unhealthy)
+        Great for DR
+
+    Security
+        only 2 IP need to be whitlist
+        DDos
+
+# Global Accelerator ≠ CloudFront
+    Both use the AWS Global network and edge location around the world
+    Services integrate with AWS Shield DDos
+
+    CloudFront
+        Improves performance cache content (images and videos)
+        Dynamic content
+    
+    Global Accelerator
+        Performance for wide range of applications over TCP or UDP
+        Proxying packets at the edge to applications
+        Good for no-HTTP/HTTP, as gaming (UDP), IoT (MQTT) or Voice IP and static IP.
+
+
+        
+    
