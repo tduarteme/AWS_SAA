@@ -1,0 +1,109 @@
+# Snow Family
+    Highly-secure, portable devices to collect and process data at the edge and migrate adata into and out of AWS
+"If it takes more than a week to transfer over the network, use Snowball Devices"
+
+Data Migration.:
+    Snowcone
+        Use cases: sent back to AWS offline or connect it to internet and use AWS DataSync to send data
+        Small, portable Computing
+        Used for edge computing, storage and data transfer
+        8TB HDD Storage
+        14TB SSD Storage
+        Snowcone where Snowball doesn't fit
+        Provide battery/cables
+
+
+
+    Snowball Edge (for data transfer)
+        No cannot import to Glacier directly, use S3 first e after the S3 lifecycle
+        Use cases: large data migration, DC decommission and DR.
+        move TBs or PBs of data in or out of AWS
+        Compatible with S3
+        Pay per data transfer job
+            Storage Optimized
+                80TB pf HDD or 210TB NVMe capacity
+            Compute Optimized
+                42TB of HDD or 28TB NVMe
+
+
+    Snowballmobile
+        AWS truck
+        Transfer exabytes of data (1 EB = 1.000 PB = 1.000.000 TBs)
+        Capacity 100 PB
+        Better than smallball if transfer more than 10 PB
+
+# Edge Computing
+    Process data while it's being created on an edge location - truck, ship mining station
+    Use cases: Preprocess data, machine learning at the edge, transconding media streams
+    These location may have - edge location
+        Limited / no internet access
+        Limited / no easy access to computing power
+
+# OpsHub - Software*
+
+# FSx for Windows
+    Is fully managed file system
+    Support SMB protocol and NTFS
+    Integration with AD, ACL, user quotas
+    Data is backed-up daily to S3
+    Can be configured to be Multi-AZ
+    Scale up 10s of GB/s, millions of IOPS, 100s PB
+    Can be accessed on-promise (VPN or Direct Connect)
+
+# FSx Lustre
+    Parallel distributed file system, large-scale
+    Derived from Linux and cluster
+    ML, HPC - Video Processing, Financial Modeling, Eletronic Design Automation
+    Scale up to 100s GB/s
+    Integration S3
+    Can be accessed on-promise (VPN or Direct Connect)
+
+# NetAPP ONTAP - Storage Software
+    Data management and access capabilities
+    Compatible with NFS, SMB, iSCSI protocol
+
+# OpenZFS
+    Open source storage plataform that combines the functionality file system and volume manager
+    Compatible with NFS (v3, v4 ... v4.2)
+    Up to 1.000.000 IOPS <0.5 latency
+    Point in time instantaneous cloning (helpful for testing new workloads)
+
+# Storage Gateway
+    Hybrid Cloud
+    Use cases, DR, backup & restore, tiered storage, on-premises cache & low-latency files access
+
+# S3 File Gateway
+    Use when S3 need connect with on-promise
+    Support classes, Standard, Standard IA, One Zone IA and Intelligent Tiering
+    Transition to Glacier, enable lifecycle policy
+    Access Buckets with roles
+    SMB integration with AD, must have user authentication
+
+# File Gateway
+    Local cache, use when want connect FSx with on-promise
+
+# Volume Gateway
+    Backed EBS snapshots can help restore on-promises volume
+    Cached volumes - low latency access to most recent data
+    Stored volumes - entire datase is on-promises, scheduled backups to S3
+
+# Tape Gateway
+    Some companies have backup processes using physical tapes
+    Virtual Tape Library (VTL) backed S3 and Glacier
+
+# Transfer Family
+    Support Protocols
+        FTP, FTPS (over SSL), SFTP (Secure File Transfer Protocol)
+        Use: sharing files, public datasets, CRM, ERP
+        HA, multi-AZ, Scalable, Reliable
+
+# AWS DataSync
+    Move large amount of data to and from
+    On-promises / other cloud to AWS - needs agent
+    AWS to AWS (different storage service)  - no agent
+    Synchronize S3, EFS, FSx
+    Replication task can be, hr, daily or weekly
+    One agent can use 10Gbps, can setup bandwidth limit
+    "AWS DataSync is an online data transfer service that simplifies, automates, and accelerates moving data between on-premises storage systems and AWS Storage services, as well as between AWS Storage services"
+
+
