@@ -1,0 +1,64 @@
+# Amazon SQS - Standard Queue
+    Oldest over 10 years
+    Fully managed service, use decouple applications
+    Defaul retention 4 days, maxium of 14 days
+    low latency <10ms
+    Limitation of 256KB
+    Unlimited number of throughputs
+    Encryption using HTTPS API, KMS keys
+
+# SQS Timeout
+    Defaul 30 seconds
+    Message not processed, it will be procced twice
+
+# SQS - Long Polling
+    When a consumer request messages from the queue, it can optionally "wait"
+    for messages to arrive if there are none in the queue, this is Polling
+    Great to short Polling, optimize the number of API calls
+
+# SQS - FIFO Queue
+    First in First Out (ordering of messages in the queue)
+    Limited throughput 300 msg/s without batching, 3000 msg/s with
+    Message are procced in order
+
+# Amazon SNS
+    Only sends message (Simple Notification Service)
+    Up to 12.500.000 subscriptions per topic
+    100.000 topics limit
+    Integrate services SQS, Lambda, kinesis Data Firehouse and others
+    Encryption using HTTPS API, KMS keys
+
+# Kinesis
+    Collext, process and analyze streaming data in real-time
+    Ingest real-time data such as Application logs, Metrics, Website clickstreams, IoT
+
+        Kinesis Data Streams: capture, process and store data streams
+            Real time
+            Big data, can be scale per shares
+            Retention between 1 day to 365 days
+            Managed: Lambda, Kinesis data firehose and Data Analytics
+            Capacity Modes
+                Provisioned and On-demand
+
+
+        Kinesis Data Firehose: Load data streams into AWS data store
+            Near real time
+            Fully Managed, automatic scaling and serveless
+            AWS into: Redshift, S3 and Open Search
+            3º partner: Splunk / MongoDB, Datadog
+            Send only HTTP endpoint
+            Buffer 0 seconds to 900 seconds
+            Buffer size: minimun 1MB
+
+        Kinesis Data Analytics: Analyze data streams with SQL or Apache Flink
+
+        Kinesis Video Streams: Capture, process and store video streams
+
+# Amazon MQ
+    SQS and SNS are cloud native AWS
+    Application running from on-promises may use open protocols
+    such as MQTT, AMQP, STOMP, Openwire and WSS
+    MQ is managed message broker service for "RABBITMQ and ACTIVE MQ"
+    Doesn't scale as much SQS/SNS
+    Run on servers, can run in Multi-AZ with failover
+
