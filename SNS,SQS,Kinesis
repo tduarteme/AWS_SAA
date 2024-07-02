@@ -12,7 +12,7 @@
     Message not processed, it will be procced twice
 
 # SQS - Long Polling
-    When a consumer request messages from the queue, it can optionally "wait"
+    When a consumer rDequest messages from the queue, it can optionally "wait"
     for messages to arrive if there are none in the queue, this is Polling
     Great to short Polling, optimize the number of API calls
 
