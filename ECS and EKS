@@ -1,0 +1,66 @@
+# Docker
+    Use cases: microservices architecture, lift and shift apps from on-promises to the AWS.
+    Docker images are stored in Docker Repositories
+        Docker Hub
+            Public repository
+        Amazon ECR (Amazon Elastic Container Registry)
+            Private repository
+            Public repository (Amazon ECR Public Gallery)
+
+# Docker Containers Management on AWS
+    Amazon ECS - Amazon's container platform
+    Amazon EKS - Amazon's managed K8s (open source)
+    AWS Fargate - Amazon's Serveless container platform
+        Works with ECS and EKS
+    Amazon ECR - Store Container images
+
+# Amazon ECS - EC2 Launch Type
+    Launch ECS Tasks on ECS Clusters
+    Must provision % maintain the infrastructure (EC2 instances)
+    Each EC2 instances must run the ECS Agent to register in the ECS Cluster
+    AWS takes care of starting / stopping containers
+    Reference sensitive data in Secrets Manager or SSM Parameter Store
+
+# Fargate Lauch Type
+    It's all Serveless
+    Just create task definitions
+    Task based on the CPU / RAM
+    To scale, increase the number of task.
+
+# ECS LB Integrations
+    ALB support and works for most use cases
+    NLB - support high throughput and performance use cases or pair with AWS Private Link
+
+# Data Volumes (EFS)
+    Fargate + EFS = Serveless
+    Use cases: persistent multi-AZ shared storage for containers
+
+# ECS - Auto Scaling
+    Use AS - Average CPU Utilization, Memory RAM (scale), Request Count Per Target
+    Target:
+        Tracking - scale based on value for specific CloudWatch metric
+        Step - scale based on a specified CloudWatch Alarm
+        Scheduled - scale based on a data/time
+
+        AS (task level) ≠ EC2 AS (Intance level)
+        Fargate AS is much easier setup (It's Severless)
+
+# EKS = K8S
+    Open-source system for automatic deployment, scaling and management of containerized
+    Use cases: The company is alredy using k8s on-promises and want migrate to AWS using k8s
+    Nodes Types
+        Managed Node Groups
+            Support On-demand or Spot Intances
+            Nodes are part of an ASG managed by EKS
+        
+        Self Managed Nodes
+            Support On-demand or Spot Intances
+            Can use prebuilt AMI - Amazon EKS Optimized AMI
+
+        Fargate
+            No maintenance required; no nodes managed
+
+# AWS APP Runner
+    Fully managed service that makes it easy to deploy web applications and APIs at scale
+    No infrastructure
+    Use cases: web apps, APIs, microservices, rapid production deployments
