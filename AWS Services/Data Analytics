@@ -1,0 +1,151 @@
+# Amazon  Athena
+
+                Serverless query servisse analyze data store in S3
+
+                Standard SQL language
+
+                Support CSV, JSON,ORC, AVRO and Parquet
+
+                Commonly used with Amazon Quicksight for reporting/dashboard
+
+ 
+
+                Use cases: BI / Analytics / query VPC flow logs, ELB logs, Cloud trail
+
+ 
+
+# Athena Performance Improvement
+
+                Compress data * use larger files >128MB
+
+ 
+
+# Athena Federated Query
+
+                Allows run SQL queries across data stored in relational or no relational database and data sources (AWS/on-premises)
+
+ 
+
+# Redshift
+
+                Based on PostgreeSQL
+
+                OLAP – online analytical processing (analytics and warehousing)
+
+                10x performance
+
+ 
+
+                Snapshot & DR
+
+                               Multi AZ
+
+                               Snap incremental
+
+ 
+
+                Redshift Spectrum = processing power
+
+ 
+
+# Amazon Open Search Service
+
+                Successor to Elastic Search
+
+                Search any field, even partially matches
+
+                Two modes: managed cluster or serveless cluster
+
+                Ingestion from Kiness Data Firehouse, IoT, Cloud Watch Logs
+
+                Security Cognito, IAM, KMS, TLS
+
+                Comes with Dashboards*
+
+ 
+
+# EMR  - Elastic MapReduce
+
+                Hadoop clusters (big data) to analyze and process data
+
+                AS and integrated with Spot instances
+
+                Apache Spark, HBase, Presto, Flink
+
+ 
+
+                Use cases: data processing, ML, web indexing, big data
+
+ 
+
+                Nodes Types
+
+                               Master Node: Manage the cluster, coordinate, manage health
+
+                               Core node: Run task and store data – long running
+
+                               Task node: Just to run task  - Use spot
+
+ 
+
+                QuickSight
+
+                               Serveless ML, BI service to create dashboard
+
+                               Fast automatically scalable, embeddable
+
+                               Integrate with RDS, Aurora, Athena, Redshift, S3
+
+ 
+
+# Glue
+
+                Manage extract, transform and load (ETL)
+
+                Fully serveless
+
+                Useful to prepare and transform data for analytics
+
+ 
+
+                Glue Job Bookmarks: prevent re-processing data
+
+                    “   Elastic View: Combine and replicate data across multiple data stores using SQL
+
+                   “    DataBrew: clean and normalize data
+
+                   “    Studio: Create new GUI
+
+                  “    Streaming ETL: built on Apache Spark compatible with Kiness Data Streaming, Kafka, MSK (managed kafka)
+
+ 
+
+# Lake Formation
+
+                Data lake = Central place to have all data for analytics purposes
+
+ 
+
+# Kiness data Analytics
+
+                Real-time analytics on Kiness Data Streams & Firehouse
+
+                Fully managed
+
+ 
+
+                Output
+
+                               Kiness Data Streams: create streams out of the real-time
+
+                               “              “             Firehouse: send analytics quert results to destinations
+
+ 
+
+                Use cases:
+
+                               Time-series Analytics
+
+                               Real-time dashboard
+
+                               Real-time metrics

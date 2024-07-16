@@ -1,0 +1,138 @@
+# Serverless in AWS
+    Lambda
+        Virtual Functions - short executions 15", on-demand, Scaling is automated
+        Pay per request and compute time, free tier 1M request 400,000GB
+        Easy monitoring throught CloudWatch, 10GB of RAM per functions, increasing RAM will also improve CPU and network
+
+    # Limits to know - per region
+        Execution
+            Memory allocation 128MB - 10GB (1MB increments)
+            Maximum execution: 900 seconds (15 minutes)
+            Disk capacity in the function container (in/tmp) 512MB to 10GB
+
+        Deployment
+            Function deployment size ".zip" 50MB
+            Size of uncompressed deployment
+
+    DynamoDB
+    Cognito
+    API Gateway
+    S3
+    SNS & SQS
+    Kinesis Data Firehose
+    Aurora Serverless
+    Step Functions
+    Fargate
+
+# Lambda SnapStart
+
+    Improve performance up to 10x no extra cost for Java
+
+# The Edge
+
+    Edge Function
+        Write code and attach to Cloudfront distribution, two types of Cloudfront Functions & Lambda@Edge
+
+        Serveless, deploy globally
+
+        Use cases: Website Security and Privacy
+
+            Real-time Image Transformation
+
+            A/B Testing
+
+            User Authentication and Authorization
+
+    Cloudfront Functions
+
+        Functions written in Javascript, high-scale, latency-sensitive CDN customization
+
+        Used to change Viewer request and responses
+
+        Cache key normalization
+
+        Header manipulation
+
+        Request authentication & authorization
+
+    Lambda@Edge
+
+        Functions written in NodeJs or Python
+
+        Scales to 1000s of request/second
+
+        Longer execution time
+
+        Adjustable CPU or memory
+
+        File system access or access to the body of HTTP request
+
+    Lambda in VPC
+        Must define the VPC ID, the subnets and SG, lambda will create an ENI on subnets
+    
+    Lambda with RDS proxy
+        When lambda functions directly access database, they open too many connections under high load
+    With RDS proxy:
+        Improve scalability, availability by reducing by 66% the failover, security enforcing IAM authetication and
+            storing credentials in Secret Manager
+
+        * Lambda function must be deployed in VPC, because RDS proxy is never publicly accessible
+
+# DynamoBD
+    Fully managed,highly available with replication across multiple AZs
+    NoSQL, not a relational database
+    Scale to massive workloads, distributed database
+    Million of request per seconds, trillions of row, 100s of TB storage
+    Integrated with IAM
+    Low cost and AS
+    No maintenance or patching, always available
+    Rapidly evolve schemas
+    Global tables - accessible with low latency in multiples regions
+
+    Capacity Modes
+        Control how manage tables (read/write throughtput)
+            Provisioned Mode (default)
+                Specify the number of reads/writes per second
+                Plan capacity beforehand, pay for provisioned
+
+            On-Demand Mode
+                Read/write automatically scale up/down
+                No capacity planning needed
+                Pay for what use, more expensive
+                Great for unpredictable workloads
+
+# DynamoDB Accelerator (DAX)
+    Fully managed, highly available, seamless in memory cache
+    Resolve read congestion by caching
+    Microseconds latency for cached data
+    5" TTL for cache
+
+# AWS API Gateway
+    Lambda + API GTW: No infrastructure to manage
+    Support for the Websocket Protocol
+    Handle different environments (dev,test,prod)
+    Security (Authenti. Authoriza)
+    Cache API responses
+    Generate SDK and API specifications
+
+    Endpoint Types:
+        Edge Optimized (default) Global clients
+            Requests are routed through the CloudFront Edge locations (improves latency)
+            Only one region
+
+        Regional:
+            Clients within the same region
+            Manually combine with CloudFront (more control over caching strategies and the distribution)
+
+        Private:
+            Can only be accessed from VPC using an interface VPC endpoint (ENI)
+
+    Security
+        User authetication through
+            IAM Roles (internal applications)
+            Cognito (external users - mobile users)
+            Custom Authorizer
+            HTTPS integration with Certificate Manager (ACM)
+
+    
+

@@ -1,0 +1,204 @@
+
+CXP Thiago Duarte Pinto <cxp.tduarte@ouribank.com>
+Tue, Jul 9, 8:43 PM (7 days ago)
+to me
+
+# RDS
+
+                Managed PostgreSQL, MySQL, Oracle, SQL Server, DB2, MariaDB and Custom
+
+                Provisioned RDS Instance Size EBSVolume type and size
+
+                AS capability for storage
+
+                Support Read Replicas and MultiAZ
+
+                IAM, SG, KMS, SSL in transit
+
+                Automated Backup with point time restore (up to 35 days)
+
+RDS Custom for access Oracle & SQL Server
+
+ 
+
+# Aurora
+
+                Compatible PostgreSQL and MySQL
+
+                Storage in 6 replicas, across 3AZs – HA self-fealing, AS
+
+                Cluster across multiple AZ, AG, Read Replicas
+
+ 
+
+                Aurora Serveless – for unpredictable and intermittent workload, no capacity planning
+
+ 
+
+                Aurora Global – 16 DB Read Intances in each region, <1 second storage replication
+
+ 
+
+                Aurora ML -Using SageMaker & Comprehend on Aurora
+
+ 
+
+                Aurora Database Cloning – New cluster from existing one, faster than restoring a snashot
+
+ 
+
+                Use cases: Same as RDS, less maintenance, more flexibility, more performance and more features
+
+ 
+
+# Amazon Elastic Cache
+
+                Managed Redis / Memcache (similar as RDS, but for caches)
+
+                In memory data store, sub-millisecond latency
+
+                Clustering (Redis) and Multi AZ, Read Replicas (sharding)
+
+                IAM, SG, KMS and Redis Auth
+
+                Backup, Snapshot and point restore
+
+ 
+
+                Use cases: Key/Value store, frequent reads, less writes, cache results for DB queries, store session data for websites, cannot use SQL.
+
+ 
+
+# DynamoDB
+
+                AWS proprietary, managed serverless NoSQL, millisecond latency
+
+                Provisioned capacity with optional AS or on-demand capacity
+
+                Replace Elastic Cache as a Key/Value (store session data, using TTL feature)
+
+                HA, MultiAZ by default, read e write decoupled, transaction capability
+
+                DAX cluster for read cache, microsecond read latency
+
+                Authetication and authorization is done through IAM
+
+                Event Processing – DynamoDB Streams to integrate with Lambda or Kiness Data Streams
+
+                Global Table feature
+
+                Great to rapidly evolve schemas
+
+ 
+
+                Use cases: Serveless applications development (small documents 100s KB) distributed serverless cache
+
+ 
+
+# S3
+
+                Key/Value store objects
+
+                Great for bigger objects, no so great for smaller objects
+
+                Serverless, scales, max object size is 5TB, versoning capability
+
+ 
+
+                Use cases: Bigger and static files, website hosting
+
+ 
+
+# DocumentDB
+
+                Same for MongoDB (NoSQL)
+
+                Used to store, query and index JSON data
+
+                Similar “deployment concepts” Aurora
+
+                Fully Managed, HA with replication across 3AZs
+
+                Store automatically grows in increments of 10GB
+
+                Automatically scales to workloads with millions of request per seconds
+
+ 
+
+# Neptune
+
+                Fully managed graph database
+
+                Popular to social network
+
+                               User friends
+
+                               Posts have comments
+
+                               Share and Likes posts
+
+ 
+
+                HA across 3AZ with up to 15 read replicas
+
+                Can store up to billions of relations and query the graph with milliseconds latency
+
+                Great for knowledge graphs, fraud detection, recommendation engines, social networking
+
+ 
+
+# Neptune – Streams
+
+                Real-time ordered, no duplicates, strict order
+
+                Streams data is accessible in an HTTP REST API
+
+ 
+
+                Use cases: Send notifications when certain changes are made, maintain graph data synchronized in another data store
+
+ 
+
+# Amazon Keyspaces (Apache Cassandra)
+
+                Serverless, Scalable, HA, fully managed by AWS
+
+                Automatically scale tables up/down based on the applications traffic
+
+                Tables are replicated 3 times across multiple AZ
+
+                On-demand or Provisioned with AS
+
+ 
+
+                Use cases: IoT devices info, time-series data
+
+ 
+
+# Amazon QLDB
+
+                Quantum Ledger Database
+
+                Recording financial transactions
+
+                Fully managed, serverless, HA, replication across 3AZ
+
+                Used to review history of all the changes made to application data over time
+
+                2-3x performance
+
+ 
+
+# Amazon Timestream
+
+                Managed, fast, scalable, serveless time series database
+
+                Automatically scales up/down to adjust capacity
+
+                Store and analyze trillons of events per day
+
+                Built -in time series analytics functions
+
+ 
+
+                Use cases; IoT apps, operational applications, real-time analytics

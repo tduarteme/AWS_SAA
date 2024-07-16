@@ -1,0 +1,34 @@
+# Rekognition
+
+    Find objects, people, tect scenes in images and video using ML
+
+    Facial analysis and search
+
+        Use cases:
+        Labeling
+        Content Moderation – ( Content that is inappropriate, unwated or offensive (images and videos))
+        Text Detection
+        Pathing (ex.: sports game analysis)
+
+ 
+# Amazon Transcribe
+
+    Convert speech to text
+
+    Support Language identification for multiple languages.
+
+        Use cases:
+
+        Transcribe customer service calls
+
+        Automate closed captioning and subtitling
+
+Hidden person information
+ 
+
+# Amazon Polly
+
+    Turn text lifelike speech using deep learning
+    Allowing to create applications that talk
+    Lexicon & SSML
+    Customize the pronunciation of words
