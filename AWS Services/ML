@@ -32,3 +32,59 @@ Hidden person information
     Allowing to create applications that talk
     Lexicon & SSML
     Customize the pronunciation of words
+
+# Amazon Translate
+    Natural language translate
+    Easily translate large volumes of text efficently
+
+# Amazon Lex & Connect
+    Amazon Lex (same technology that powers Alexa)
+    Automaic Speech Recognition (ASR) to convert speech to text
+    Help build chatbots, call center bots
+
+# Connect
+    Receive calls, create contact flows
+    Integrate with other CRM 
+    80% cheaper than tranditional contact center solutions
+
+# Amazon Comprehend
+    Natural Language Processsing - NLP
+    Fully managed and serverless service
+    ML to find insights and relationships in text
+    Language of the text
+    Extracts key phrases, places, people, brands or events
+    Understands how positive or negative the text is
+
+    Case uses:
+        Analyze customer interactions (e-mails) to find what leads to a positive or negative
+
+        Create and groups articles
+
+# Amazon Comprehend Medical
+    Detects and returns useful information in unstructured clinical text
+    Use NLP to detect Protected Health Information
+    Store in S3, analyze real-time (Kiness Data Firehouse) or Amazon Transcribe, patient narratives into text
+
+# Amazon SageMaker
+    Managed service for developers / data scientists to build ML models
+
+# Amazon Forecast
+    ML to deliver highly accurate forecasts
+    predict the future sales of a raincoat
+
+    Use cases: Product Demand Planning, Financial and Resource
+
+# Amazon Kendra
+    Document search service powered by ML
+    Extract answers from within a document (text, pdf, html)
+
+# Amazon Personalize
+    ML service to build apps with real-time recommendations
+    Integrates into existing websites, applications, SMS, e-mail
+
+    Use cases: retail stores, media and entertainment
+
+# Amazon Textract
+    Automatically extracts text, handwriting and data from any scanned
+    Example: Info. about drive license
+    Extract data from forms and tables
