@@ -1,0 +1,85 @@
+# CloudWatch Metrics
+    Metric (CPU, NetworkIn)
+    Metrics have timestamps
+    CloudWatch Custom Metrics (RAM for example)
+    Near-real-time delivery and low latency
+
+# CloudWatch Logs
+    Log groups: arbitrary name, usually representing an application
+    Log stream: instances within application /log files/ containers
+    Can define log expiration policies
+    Logs can send to
+            S3
+            Kinesis Data Streams
+            Kinesis Data Firehouse
+            Lambda
+            OpenSearch
+
+        Logs are encrypted by default
+        Can setup KMS
+    
+    Sources:
+        SDK, CloudWatch Unified Agent
+        Elastic Beanstalk: Collection of logs from application
+        ECS: Collection from containers
+        Lambda: collection from function logs
+        VPC flow logs: VPC specific logs
+        API Gateway
+        Cloud Trail
+        Route53
+
+    CloudWatch Logs Subscriptions
+        Get a real-time log events from Cloud watch logs for processing and analysis
+        Send to Kinesis Data Streams, Kiness Data Firehouse or Lambda
+        Subscrption Filter - filter which logs are events delivered to destination
+
+# CloudWatch Unified Agent - Metrics
+    CPU, Disk metrics, RAM, Netstat, Processes, Swap Space
+    * Out-of-the box metrics for EC2 - disl, CPU, networl (high level)
+
+# Alarm Targets
+    Stop, Terminate or recover on EC2 (EC2 + AS + SNS)
+
+* Alarms can be created based on CloudWatch logs metrics filters
+
+# Amazon EventBridge = CloudWatch Events
+    Schedule cron Jobs, trigger lambda functions, send SQS/SNS
+
+# CloudWatch Container Insights
+    Collect, aggregate, summarize metrics and logs containers
+    Available: ECS, EKS, K8s on EC2 and Fargate
+
+# CloudWatch Lambda Insights
+    Monitoring and troubleshooting serveless application, collects metrics
+
+# CloudWatch Contributor Insights
+    Analyze log data and create time series
+    Help find top talkers and understand who or what is impacting system performance "TOP-N"
+
+# CloudWatch Application Insights
+    Dashboard that show potencial problems with monitored applications
+
+# CloudTrail
+    "X9" Provides governance, compliance and audit, enable by default
+    Get an history of events / API calls made within your AWS
+        Console, SDK, CLI
+    A trail can be applied to all regions (default) or single region
+
+Event Retention
+    90 days in CloudTrail, to keep events beyond this period, log them to S3 and use Athena
+
+# AWS Config
+    Help with auditing and recording compliance
+    Questions that can be solved by AWS Config:
+        is there unrestricted ssh access on the SG?
+        My bucket have any public access?
+        How has my ALB configuration chaged over time
+
+    Receive alerts SNS for any changes
+    AWS config is per region
+    Possible storing the config. data into S3 (analyze by Athena)
+
+    * Config Remediations - automatically re-configure to correct state
+
+    
+
